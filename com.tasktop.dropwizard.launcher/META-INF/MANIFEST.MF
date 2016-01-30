@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Dropwizard Launcher
+Bundle-SymbolicName: com.tasktop.dropwizard.launcher
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Tasktop Technologies
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

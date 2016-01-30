@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Dropwizard Launcher Tests
+Bundle-SymbolicName: com.tasktop.dropwizard.launcher.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Tasktop Technologies
+Fragment-Host: com.tasktop.dropwizard.launcher;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
