@@ -83,6 +83,10 @@ public class ApplicationPart extends LaunchConfigurationParticipant {
 		text = new Text(parent, SWT.SINGLE | SWT.LEAD | SWT.BORDER | SWT.READ_ONLY);
 		text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		text.setText("");
+		createBrowserButton(parent);
+	}
+
+	private void createBrowserButton(final Composite parent) {
 		Button browseButton = new Button(parent, SWT.PUSH);
 		browseButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
 		browseButton.setText("Browse...");

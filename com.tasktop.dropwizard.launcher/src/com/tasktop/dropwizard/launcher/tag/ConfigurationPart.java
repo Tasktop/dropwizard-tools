@@ -58,7 +58,11 @@ public class ConfigurationPart extends LaunchConfigurationParticipant {
 		text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		text.setMessage("Dropwizard Configuration File");
 		text.setText("");
+		createBrowserButton(parent);
+		createModeButtons(parent);
+	}
 
+	private void createBrowserButton(final Composite parent) {
 		Button browseButton = new Button(parent, SWT.PUSH);
 		browseButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
 		browseButton.setText("Browse...");
@@ -70,8 +74,6 @@ public class ConfigurationPart extends LaunchConfigurationParticipant {
 			}
 
 		});
-
-		createModeButtons(parent);
 	}
 
 	private void openResourceDialog(Composite parent) {
