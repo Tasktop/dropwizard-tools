@@ -125,7 +125,7 @@ public class ConfigurationPart extends LaunchConfigurationParticipant {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				if (healthcheckButton.getSelection()) {
-					setAttribute(DropwizardLaunchConstants.ATTR_MODE, "healthcheck");
+					setAttribute(DropwizardLaunchConstants.ATTR_MODE, "check");
 				}
 			}
 		});
