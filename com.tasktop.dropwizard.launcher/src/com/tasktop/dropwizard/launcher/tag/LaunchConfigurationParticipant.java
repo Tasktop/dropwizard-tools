@@ -15,7 +15,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
-import com.google.common.collect.ImmutableMap;
 import com.tasktop.dropwizard.launcher.DropwizardLaunchExceptionHandler;
 
 public abstract class LaunchConfigurationParticipant {
@@ -50,7 +49,7 @@ public abstract class LaunchConfigurationParticipant {
 	}
 
 	public Map<String, String> getAttributes() {
-		return ImmutableMap.copyOf(attributes);
+		return new HashMap<>(attributes);
 	}
 
 }
