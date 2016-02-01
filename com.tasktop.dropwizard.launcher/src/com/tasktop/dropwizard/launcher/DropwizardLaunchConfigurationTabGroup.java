@@ -28,7 +28,7 @@ import org.eclipse.jdt.debug.ui.launchConfigurations.JavaArgumentsTab;
 import org.eclipse.jdt.debug.ui.launchConfigurations.JavaClasspathTab;
 import org.eclipse.jdt.debug.ui.launchConfigurations.JavaJRETab;
 
-import com.tasktop.dropwizard.launcher.tag.DropwizardApplicationTab;
+import com.tasktop.dropwizard.launcher.tabs.DropwizardApplicationTab;
 
 public class DropwizardLaunchConfigurationTabGroup extends AbstractLaunchConfigurationTabGroup {
 

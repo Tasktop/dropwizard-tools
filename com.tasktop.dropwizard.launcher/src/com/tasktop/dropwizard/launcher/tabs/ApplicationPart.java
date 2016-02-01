@@ -16,7 +16,7 @@
  * Contributors:
  *     Holger Staudacher - initial implementation
  */
-package com.tasktop.dropwizard.launcher.tag;
+package com.tasktop.dropwizard.launcher.tabs;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;

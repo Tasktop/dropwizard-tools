@@ -16,7 +16,7 @@
  * Contributors:
  *     Holger Staudacher - initial implementation
  */
-package com.tasktop.dropwizard.launcher.tag;
+package com.tasktop.dropwizard.launcher.tabs;
 
 import java.io.File;
 
