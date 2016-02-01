@@ -12,6 +12,8 @@ public class DropwizardLaunchConstants {
 
 	public static final String PLUGIN_ID = "com.tasktop.dropwizard.launcher";
 
+	public static final String ID_DROPWIZARD_APPLICATION = "com.tasktop.dropwizard.launcher.launchConfigurationType";
+
 	public static final String ATTR_MODE = PLUGIN_ID + ".mode";
 
 	public static final String ATTR_CONFIG_FILE = PLUGIN_ID + ".configFile";
