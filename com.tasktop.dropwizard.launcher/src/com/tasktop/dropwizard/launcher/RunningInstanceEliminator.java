@@ -1,5 +1,8 @@
 package com.tasktop.dropwizard.launcher;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -11,6 +14,8 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.debug.core.model.RuntimeProcess;
+
+import com.google.common.collect.Lists;
 
 public class RunningInstanceEliminator {
 
@@ -85,14 +90,23 @@ public class RunningInstanceEliminator {
 
 	private ILaunch findRunning() {
 		ILaunchManager launchManager = DebugPlugin.getDefault().getLaunchManager();
-		ILaunch[] runningLaunches = launchManager.getLaunches();
+		List<ILaunch> runningLaunches = getRunningLaunches(launchManager);
 		ILaunch result = null;
-		for (ILaunch runningLaunch : runningLaunches) {
-			if (configuration.getName().equals(getLaunchName(runningLaunch)) && !runningLaunch.isTerminated()) {
-				result = runningLaunch;
-			}
+		if (runningLaunches.size() > 1) {
+			result = Lists.reverse(runningLaunches).get(0);
 		}
 		return result;
+	}
+
+	private List<ILaunch> getRunningLaunches(ILaunchManager launchManager) {
+		List<ILaunch> runningLaunches = new ArrayList<>();
+		ILaunch[] launches = launchManager.getLaunches();
+		for (ILaunch runningLaunch : launches) {
+			if (configuration.getName().equals(getLaunchName(runningLaunch)) && !runningLaunch.isTerminated()) {
+				runningLaunches.add(runningLaunch);
+			}
+		}
+		return runningLaunches;
 	}
 
 	private String getLaunchName(ILaunch launch) {

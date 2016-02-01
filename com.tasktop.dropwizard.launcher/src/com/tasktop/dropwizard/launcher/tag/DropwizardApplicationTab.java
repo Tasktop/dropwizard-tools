@@ -44,10 +44,8 @@ public class DropwizardApplicationTab extends AbstractLaunchConfigurationTab imp
 		Composite composite = new Composite(parent, SWT.NONE);
 		composite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		composite.setLayout(new GridLayout(2, true));
-
 		createApplicationGroup(composite);
 		createConfigurationGroup(composite);
-
 		return composite;
 	}
 

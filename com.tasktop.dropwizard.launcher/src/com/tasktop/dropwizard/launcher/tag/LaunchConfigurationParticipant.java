@@ -38,6 +38,7 @@ public abstract class LaunchConfigurationParticipant {
 		try {
 			status = validate();
 			if (status.isOK()) {
+				updater.updateError(null);
 				attributes.put(key, value);
 			} else {
 				updater.updateError(status.getMessage());

@@ -8,6 +8,8 @@
 
 package com.tasktop.dropwizard.launcher.tag;
 
+import java.io.File;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
@@ -72,7 +74,7 @@ public class ConfigurationPart extends LaunchConfigurationParticipant {
 				IFile file = (IFile) result[0];
 				String path = file.getFullPath().toString();
 				text.setText(path);
-				setAttribute(DropwizardLaunchConstants.ATTR_CONFIG_FILE, path);
+				setAttribute(DropwizardLaunchConstants.ATTR_CONFIG_FILE, file.getProjectRelativePath().toString());
 				setAttribute(DropwizardLaunchConstants.ATTR_CONFIG_FILE_PROJECT, file.getProject().getName());
 			}
 		}
@@ -94,7 +96,10 @@ public class ConfigurationPart extends LaunchConfigurationParticipant {
 	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) throws CoreException {
 		if (configuration.hasAttribute(DropwizardLaunchConstants.ATTR_CONFIG_FILE)) {
-			text.setText(configuration.getAttribute(DropwizardLaunchConstants.ATTR_CONFIG_FILE, ""));
+			String configFile = configuration.getAttribute(DropwizardLaunchConstants.ATTR_CONFIG_FILE, "");
+			String configFileProject = configuration.getAttribute(DropwizardLaunchConstants.ATTR_CONFIG_FILE_PROJECT,
+					"");
+			text.setText(configFileProject + File.separator + configFile);
 		}
 		String mode = configuration.getAttribute(DropwizardLaunchConstants.ATTR_MODE, "server");
 		if (mode.equals("server")) {
