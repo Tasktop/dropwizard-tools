@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="com.tasktop.dropwizard.launcher.DropwizardLaunchDelegate"
+            id="com.tasktop.dropwizard.launcher.launchConfigurationType"
+            modes="run,debug"
+            name="Dropwizard Application"
+            public="true"
+            sourceLocatorId="org.eclipse.jdt.launching.sourceLocator.JavaSourceLookupDirector"
+            sourcePathComputerId="org.eclipse.jdt.launching.sourceLookup.javaSourcePathComputer">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="com.tasktop.dropwizard.launcher.launchConfigurationType"
+            icon="resources/dropwizard.png"
+            id="com.tasktop.dropwizard.launcher.launchConfigurationTypeImage">
+      </launchConfigurationTypeImage>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="com.tasktop.dropwizard.launcher.DropwizardLaunchConfigurationTabGroup"
+            id="com.tasktop.dropwizard.launcher.launchConfigurationTabGroup"
+            type="com.tasktop.dropwizard.launcher.launchConfigurationType">
+         <launchMode
+               description="Debug a Dropwizard Application"
+               mode="debug"
+               perspective="org.eclipse.debug.ui.DebugPerspective">
+         </launchMode>
+         <launchMode
+               description="Run a Dropwizard Application"
+               mode="run">
+         </launchMode>
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="com.tasktop.dropwizard.launcher.DropwizardLaunchShortcut"
+            icon="resources/dropwizard.png"
+            id="com.tasktop.dropwizard.launcher.shortcut"
+            label="Dropwizard Application"
+            modes="run,debug,coverage,yourkitprofile">
+         <contextualLaunch>
+            <enablement>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <adapt
+                           type="org.eclipse.jdt.core.IJavaElement">
+                        <test
+                              property="org.eclipse.jdt.core.isInJavaProject">
+                        </test>
+                     </adapt></iterate>
+               </with></enablement></contextualLaunch>
+      </shortcut>
+   </extension>
+</plugin>
