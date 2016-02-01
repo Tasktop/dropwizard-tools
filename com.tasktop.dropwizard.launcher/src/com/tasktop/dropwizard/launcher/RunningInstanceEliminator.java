@@ -15,8 +15,6 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.debug.core.model.RuntimeProcess;
 
-import com.google.common.collect.Lists;
-
 public class RunningInstanceEliminator {
 
 	private final ILaunchConfiguration configuration;
@@ -91,11 +89,10 @@ public class RunningInstanceEliminator {
 	private ILaunch findRunning() {
 		ILaunchManager launchManager = DebugPlugin.getDefault().getLaunchManager();
 		List<ILaunch> runningLaunches = getRunningLaunches(launchManager);
-		ILaunch result = null;
 		if (runningLaunches.size() > 1) {
-			result = Lists.reverse(runningLaunches).get(0);
+			return runningLaunches.get(0);
 		}
-		return result;
+		return null;
 	}
 
 	private List<ILaunch> getRunningLaunches(ILaunchManager launchManager) {
