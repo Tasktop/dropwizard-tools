@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <prerequisites>
+    <maven>3.0</maven>
+  </prerequisites>
+
+  <groupId>com.tasktop.dropwizard</groupId>
+  <artifactId>com.tasktop.dropwizard.parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Dropwizard Tools</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <tycho-version>0.24.0</tycho-version>
+    <tycho-extras-version>0.24.0</tycho-extras-version>
+    <tycho-groupid>org.eclipse.tycho</tycho-groupid>
+    <surefire-version>2.17</surefire-version>
+    <junit-version>4.12</junit-version>
+    <mockito-version>1.10.19</mockito-version>
+    <findbugs-version>3.0.1</findbugs-version>
+    <jacocoagent>${basedir}/com.tasktop.dropwizard.build/lib/jacocoagent.jar</jacocoagent>
+    <test-arguments>-Xms512m -Xmx512m
+      -javaagent:${jacocoagent}=destfile=${basedir}/../com.tasktop.dropwizard.build/target/jacoco.exec,append=true</test-arguments>
+  </properties>
+
+  <modules>
+    <!-- Backend -->
+    <module>../com.tasktop.dropwizard.launcher</module>
+    <module>../com.tasktop.dropwizard.launcher.test</module>
+    <module>../com.tasktop.dropwizard.launcher.feature</module>
+    <module>../com.tasktop.dropwizard.repository</module>
+  </modules>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>${tycho-groupid}</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <extensions>true</extensions>
+      </plugin>
+
+      <plugin>
+        <groupId>${tycho-groupid}</groupId>
+        <artifactId>tycho-compiler-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>${tycho-groupid}</groupId>
+        <artifactId>tycho-source-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <executions>
+          <execution>
+            <id>plugin-source</id>
+            <goals>
+              <goal>plugin-source</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>${tycho-groupid}</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <resolver>p2</resolver>
+          <ignoreTychoRepositories>true</ignoreTychoRepositories>
+          <target>
+            <artifact>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>${project.artifactId}</artifactId>
+              <version>${project.version}</version>
+              <classifier>${project.parent.relativePath}/../com.tasktop.dropwizard.build/all-in-one</classifier>
+            </artifact>
+          </target>
+          <environments>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
+          </environments>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>
