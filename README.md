@@ -1,5 +1,4 @@
-# Eclipse Dropwizard Tools 
-[ ![Codeship Status for Tasktop/dropwizard-tools](https://codeship.com/projects/90854c80-ab14-0133-943f-4a9cc2c4d260/status?branch=master)](https://codeship.com/projects/131204)
+# Eclipse Dropwizard Tools [ ![Codeship Status for Tasktop/dropwizard-tools](https://codeship.com/projects/90854c80-ab14-0133-943f-4a9cc2c4d260/status?branch=master)](https://codeship.com/projects/131204)[![License](http://img.shields.io/badge/license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 Eclipse Tools to ease the development of [Dropwizard](http://www.dropwizard.io) applications. The following tools are included and described in more detail below:
 * Dropwizard Application Launcher
 * [YAML Editor](https://github.com/oyse/yedit)
