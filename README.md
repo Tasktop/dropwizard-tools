@@ -14,7 +14,7 @@ Dropwizard applications can be launched as plain Java applications. The drawback
 * Select an Application class (must implement `main` method) and Run As... Dropwizard Application ![Select](https://cloud.githubusercontent.com/assets/289648/12719099/4d55d020-c8f3-11e5-99e1-44747b136d5e.png)
 
 ## YEdit 
-Some YAMl is part of each Dropwizard application. The Dropwizard tools contain the awesome [YEdit](https://github.com/oyse/yedit) Plug-In to make YAML editing fun.
+Some YAML is part of each Dropwizard application. The Dropwizard tools contain the awesome [YEdit](https://github.com/oyse/yedit) Plug-In to make YAML editing fun.
 
 ## License
 All code in this repository is published under terms of the [Apache 2.0 Software License](http://www.apache.org/licenses/LICENSE-2.0). The included binaries from YEdit are published under the terms of the [Eclipse Public License v1.0](https://www.eclipse.org/legal/epl-v10.html).
