@@ -18,12 +18,16 @@
  */
 package com.tasktop.dropwizard.launcher;
 
+import java.io.File;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
 import org.eclipse.jdt.launching.JavaLaunchDelegate;
 
 public class DropwizardLaunchDelegate extends JavaLaunchDelegate {
@@ -53,10 +57,25 @@ public class DropwizardLaunchDelegate extends JavaLaunchDelegate {
 			throws CoreException {
 		String configFileProject = configuration.getAttribute(DropwizardLaunchConstants.ATTR_CONFIG_FILE_PROJECT, "");
 		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(configFileProject);
+		if (project != null && project.isAccessible()) {
+			appendConfigFile(argumentBuilder, configFile, project);
+		} else {
+			abort("Project " + configFileProject + " is closed", new CoreException(Status.CANCEL_STATUS),
+					IJavaLaunchConfigurationConstants.ERR_PROJECT_CLOSED);
+		}
+	}
+
+	private void appendConfigFile(StringBuilder argumentBuilder, String configFile, IProject project)
+			throws CoreException {
 		IFile file = (IFile) project.findMember(configFile);
-		argumentBuilder.append(" \"");
-		argumentBuilder.append(file.getLocation().toString());
-		argumentBuilder.append("\"");
+		if (file != null) {
+			argumentBuilder.append(" \"");
+			argumentBuilder.append(file.getLocation().toString());
+			argumentBuilder.append("\"");
+		} else {
+			abort("Config file does not exist: " + project.getName() + File.separator + configFile,
+					new CoreException(Status.CANCEL_STATUS), IJavaLaunchConfigurationConstants.ERR_INTERNAL_ERROR);
+		}
 	}
 
 }
