@@ -24,7 +24,7 @@
     <junit-version>4.12</junit-version>
     <mockito-version>1.10.19</mockito-version>
     <findbugs-version>3.0.1</findbugs-version>
-    <jacocoagent>${basedir}/com.tasktop.dropwizard.build/lib/jacocoagent.jar</jacocoagent>
+    <jacocoagent>${basedir}/../com.tasktop.dropwizard.build/lib/jacocoagent.jar</jacocoagent>
     <test-arguments>-Xms512m -Xmx512m
       -javaagent:${jacocoagent}=destfile=${basedir}/../com.tasktop.dropwizard.build/target/jacoco.exec,append=true</test-arguments>
   </properties>
