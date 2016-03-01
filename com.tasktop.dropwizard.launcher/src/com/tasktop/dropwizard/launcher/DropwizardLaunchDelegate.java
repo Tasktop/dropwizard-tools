@@ -22,6 +22,7 @@ import java.io.File;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -31,6 +32,16 @@ import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
 import org.eclipse.jdt.launching.JavaLaunchDelegate;
 
 public class DropwizardLaunchDelegate extends JavaLaunchDelegate {
+
+	private final IWorkspace workspace;
+
+	public DropwizardLaunchDelegate() {
+		this(ResourcesPlugin.getWorkspace());
+	}
+
+	DropwizardLaunchDelegate(IWorkspace workspace) {
+		this.workspace = workspace;
+	}
 
 	@Override
 	public boolean preLaunchCheck(ILaunchConfiguration configuration, String mode, IProgressMonitor monitor)
@@ -56,7 +67,7 @@ public class DropwizardLaunchDelegate extends JavaLaunchDelegate {
 	private void appendConfigFile(ILaunchConfiguration configuration, StringBuilder argumentBuilder, String configFile)
 			throws CoreException {
 		String configFileProject = configuration.getAttribute(DropwizardLaunchConstants.ATTR_CONFIG_FILE_PROJECT, "");
-		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(configFileProject);
+		IProject project = workspace.getRoot().getProject(configFileProject);
 		if (project != null && project.isAccessible()) {
 			appendConfigFile(argumentBuilder, configFile, project);
 		} else {

@@ -32,14 +32,19 @@ import org.eclipse.jdt.debug.ui.launchConfigurations.JavaApplicationLaunchShortc
 
 public class DropwizardLaunchShortcut extends JavaApplicationLaunchShortcut {
 
-	@Override
-	protected ILaunchConfigurationType getConfigurationType() {
-		ILaunchManager launchManager = getLaunchManager();
-		return launchManager.getLaunchConfigurationType(DropwizardLaunchConstants.ID_DROPWIZARD_APPLICATION);
+	private final ILaunchManager launchManager;
+
+	public DropwizardLaunchShortcut() {
+		this(DebugPlugin.getDefault().getLaunchManager());
 	}
 
-	private ILaunchManager getLaunchManager() {
-		return DebugPlugin.getDefault().getLaunchManager();
+	public DropwizardLaunchShortcut(ILaunchManager launchManager) {
+		this.launchManager = launchManager;
+	}
+
+	@Override
+	protected ILaunchConfigurationType getConfigurationType() {
+		return launchManager.getLaunchConfigurationType(DropwizardLaunchConstants.ID_DROPWIZARD_APPLICATION);
 	}
 
 	@Override
@@ -47,9 +52,9 @@ public class DropwizardLaunchShortcut extends JavaApplicationLaunchShortcut {
 		ILaunchConfiguration configuration = super.createConfiguration(type);
 		try {
 			ILaunchConfigurationWorkingCopy copy = configuration
-					.copy(getLaunchManager().generateLaunchConfigurationName(type.getTypeQualifiedName('.')));
+					.copy(launchManager.generateLaunchConfigurationName(type.getTypeQualifiedName('.')));
 			configuration.delete();
-			copy = copy.copy(getLaunchManager().generateLaunchConfigurationName(type.getTypeQualifiedName('.')));
+			copy = copy.copy(launchManager.generateLaunchConfigurationName(type.getTypeQualifiedName('.')));
 			copy.setAttribute(DropwizardLaunchConstants.ATTR_CONFIG_FILE, getConfigFile(type));
 			copy.setAttribute(DropwizardLaunchConstants.ATTR_CONFIG_FILE_PROJECT,
 					type.getJavaProject().getElementName());

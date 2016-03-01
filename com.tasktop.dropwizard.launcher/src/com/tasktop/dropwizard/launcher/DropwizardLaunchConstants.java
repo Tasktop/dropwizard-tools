@@ -30,4 +30,8 @@ public class DropwizardLaunchConstants {
 
 	public static final String ATTR_CONFIG_FILE_PROJECT = PLUGIN_ID + ".configFileProject";
 
+	private DropwizardLaunchConstants() {
+		// prevent instantiation
+	}
+
 }
