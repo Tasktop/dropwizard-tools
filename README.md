@@ -16,5 +16,14 @@ Dropwizard applications can be launched as plain Java applications. The drawback
 ## YEdit 
 Some YAML is part of each Dropwizard application. The Dropwizard tools contain the awesome [YEdit](https://github.com/oyse/yedit) Plug-In to make YAML editing fun.
 
+## Installation
+
+* Open the Eclipse help menu
+* Click "Install New Software"
+* Enter this URL: http://tasktop.github.io/dropwizard-tools/
+* Select the Features you wish to install
+* Click on "Finish", accept the license
+* Enjoy the tools!
+
 ## License
 All code in this repository is published under terms of the [Apache 2.0 Software License](http://www.apache.org/licenses/LICENSE-2.0). The included binaries from YEdit are published under the terms of the [Eclipse Public License v1.0](https://www.eclipse.org/legal/epl-v10.html).
