@@ -84,15 +84,7 @@ public class DropwizardApplicationTab extends JavaMainTab implements LaunchDialo
 				configuration.setAttribute(entry.getKey(), entry.getValue());
 			}
 		}
-		enableClasspathProvider(configuration);
-	}
-
-	private void enableClasspathProvider(ILaunchConfigurationWorkingCopy configuration) {
-		try {
-			DropwizardRuntimeClasspathProvider.enable(configuration);
-		} catch (CoreException e) {
-			DropwizardLaunchExceptionHandler.handle(e);
-		}
+		DropwizardRuntimeClasspathProvider.enable(configuration);
 	}
 
 	@Override

@@ -59,6 +59,7 @@ public class DropwizardLaunchShortcut extends JavaApplicationLaunchShortcut {
 			copy.setAttribute(DropwizardLaunchConstants.ATTR_CONFIG_FILE_PROJECT,
 					type.getJavaProject().getElementName());
 			copy.setAttribute(DropwizardLaunchConstants.ATTR_MODE, "server");
+			DropwizardRuntimeClasspathProvider.enable(copy);
 			return copy.doSave();
 		} catch (CoreException e) {
 			DropwizardLaunchExceptionHandler.handle(e);

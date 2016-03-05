@@ -58,13 +58,17 @@ public class DropwizardRuntimeClasspathProvider extends StandardClasspathProvide
 
 	IMavenProjectRegistry projectManager = MavenPlugin.getMavenProjectRegistry();
 
-	public static void enable(ILaunchConfiguration config) throws CoreException {
-		if (config instanceof ILaunchConfigurationWorkingCopy) {
-			enable((ILaunchConfigurationWorkingCopy) config);
-		} else {
-			ILaunchConfigurationWorkingCopy wc = config.getWorkingCopy();
-			enable(wc);
-			wc.doSave();
+	public static void enable(ILaunchConfiguration config) {
+		try {
+			if (config instanceof ILaunchConfigurationWorkingCopy) {
+				enable((ILaunchConfigurationWorkingCopy) config);
+			} else {
+				ILaunchConfigurationWorkingCopy wc = config.getWorkingCopy();
+				enable(wc);
+				wc.doSave();
+			}
+		} catch (CoreException e) {
+			DropwizardLaunchExceptionHandler.handle(e);
 		}
 	}
 
