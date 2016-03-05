@@ -38,6 +38,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 
 import com.tasktop.dropwizard.launcher.DropwizardLaunchExceptionHandler;
+import com.tasktop.dropwizard.launcher.DropwizardRuntimeClasspathProvider;
 
 public class DropwizardApplicationTab extends JavaMainTab implements LaunchDialogUpdater {
 
@@ -82,6 +83,15 @@ public class DropwizardApplicationTab extends JavaMainTab implements LaunchDialo
 			for (Entry<String, String> entry : entrySet) {
 				configuration.setAttribute(entry.getKey(), entry.getValue());
 			}
+		}
+		enableClasspathProvider(configuration);
+	}
+
+	private void enableClasspathProvider(ILaunchConfigurationWorkingCopy configuration) {
+		try {
+			DropwizardRuntimeClasspathProvider.enable(configuration);
+		} catch (CoreException e) {
+			DropwizardLaunchExceptionHandler.handle(e);
 		}
 	}
 

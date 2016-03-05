@@ -34,7 +34,8 @@ public class DropwizardLaunchConfigurationTabGroup extends AbstractLaunchConfigu
 
 	@Override
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
-		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] { new DropwizardApplicationTab(), //
+		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] { //
+				new DropwizardApplicationTab(), //
 				new JavaArgumentsTab(), //
 				new JavaJRETab(), //
 				new JavaClasspathTab(), //

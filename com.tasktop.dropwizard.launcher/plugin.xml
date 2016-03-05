@@ -5,10 +5,11 @@
          point="org.eclipse.debug.core.launchConfigurationTypes">
       <launchConfigurationType
             delegate="com.tasktop.dropwizard.launcher.DropwizardLaunchDelegate"
+            delegateDescription="The Dropwizard Application Launcher supports running and debugging local Dropwizard applications."
+            delegateName="Dropwizard Launcher"
             id="com.tasktop.dropwizard.launcher.launchConfigurationType"
             modes="run,debug"
             name="Dropwizard Application"
-            public="true"
             sourceLocatorId="org.eclipse.jdt.launching.sourceLocator.JavaSourceLookupDirector"
             sourcePathComputerId="org.eclipse.jdt.launching.sourceLookup.javaSourcePathComputer">
       </launchConfigurationType>
@@ -61,5 +62,16 @@
                      </adapt></iterate>
                </with></enablement></contextualLaunch>
       </shortcut>
+   </extension>
+   <extension
+         point="org.eclipse.jdt.launching.classpathProviders">
+      <classpathProvider
+            class="com.tasktop.dropwizard.launcher.DropwizardRuntimeClasspathProvider"
+            id="com.tasktop.dropwizard.launcher.classpathProvider">
+      </classpathProvider>
+      <classpathProvider
+            class="com.tasktop.dropwizard.launcher.DropwizardSourcePathProvider"
+            id="com.tasktop.dropwizard.launcher.sourcepathProvider">
+      </classpathProvider>
    </extension>
 </plugin>
