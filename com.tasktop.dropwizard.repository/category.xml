@@ -3,7 +3,7 @@
    <feature url="features/org.dadacoalition.yedit.feature_1.0.20.201509041456-RELEASE.jar" id="org.dadacoalition.yedit.feature" version="1.0.20.201509041456-RELEASE">
       <category name="com.tasktop.dropwizard.tools"/>
    </feature>
-   <feature url="features/com.tasktop.dropwizard.launcher.feature_1.1.0.qualifier.jar" id="com.tasktop.dropwizard.launcher.feature" version="1.1.0.qualifier">
+   <feature url="features/com.tasktop.dropwizard.launcher.feature_1.1.1.qualifier.jar" id="com.tasktop.dropwizard.launcher.feature" version="1.1.1.qualifier">
       <category name="com.tasktop.dropwizard.tools"/>
    </feature>
    <category-def name="com.tasktop.dropwizard.tools" label="Dropwizard Tools"/>
