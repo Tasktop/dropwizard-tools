@@ -28,46 +28,26 @@ import java.util.Set;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
-import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
+import org.eclipse.jdt.debug.ui.launchConfigurations.JavaMainTab;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 
 import com.tasktop.dropwizard.launcher.DropwizardLaunchExceptionHandler;
 
-public class DropwizardApplicationTab extends AbstractLaunchConfigurationTab implements LaunchDialogUpdater {
+public class DropwizardApplicationTab extends JavaMainTab implements LaunchDialogUpdater {
 
 	List<LaunchConfigurationParticipant> participants = new ArrayList<>();
 
 	@Override
 	public void createControl(Composite parent) {
-		Composite composite = createTabContent(parent);
-		setControl(composite);
-	}
-
-	private Composite createTabContent(Composite parent) {
-		Composite composite = new Composite(parent, SWT.NONE);
-		composite.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false));
-		composite.setLayout(new GridLayout(2, true));
-		createApplicationGroup(composite);
+		super.createControl(parent);
+		Composite composite = (Composite) getControl();
 		createConfigurationGroup(composite);
-		return composite;
-	}
-
-	private void createApplicationGroup(Composite composite) {
-		Group applicationGroup = new Group(composite, SWT.NONE);
-		applicationGroup.setLayoutData(
-				GridDataFactory.swtDefaults().grab(true, false).align(SWT.FILL, SWT.FILL).span(2, 1).create());
-		applicationGroup.setLayout(new GridLayout(2, false));
-		applicationGroup.setText("Application:");
-		ApplicationPart applicationPart = new ApplicationPart(this);
-		applicationPart.createControl(applicationGroup);
-		participants.add(applicationPart);
 	}
 
 	private void createConfigurationGroup(Composite composite) {
@@ -82,12 +62,8 @@ public class DropwizardApplicationTab extends AbstractLaunchConfigurationTab imp
 	}
 
 	@Override
-	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-
-	}
-
-	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
+		super.initializeFrom(configuration);
 		try {
 			for (LaunchConfigurationParticipant participant : participants) {
 				participant.initializeFrom(configuration);
@@ -99,6 +75,7 @@ public class DropwizardApplicationTab extends AbstractLaunchConfigurationTab imp
 
 	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
+		super.performApply(configuration);
 		for (LaunchConfigurationParticipant participant : participants) {
 			Map<String, String> attributes = participant.getAttributes();
 			Set<Entry<String, String>> entrySet = attributes.entrySet();
