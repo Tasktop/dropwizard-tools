@@ -2,7 +2,7 @@
 <feature
       id="com.tasktop.dropwizard.launcher.feature"
       label="Dropwizard Launcher"
-      version="1.0.0.qualifier"
+      version="1.1.0.qualifier"
       provider-name="Tasktop Technologies">
 
    <description url="http://www.dropwizard.io/">
