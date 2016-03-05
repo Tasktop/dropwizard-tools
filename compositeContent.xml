@@ -2,9 +2,10 @@
 <?compositeMetadataRepository version='1.0.0'?>
 <repository name='Eclipse Dropwizard Tools' type='org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository' version='1.0.0'>
   <properties size='1'>
-    <property name='p2.timestamp' value='1456853095564'/>
+    <property name='p2.timestamp' value='1457170509110'/>
   </properties>
-  <children size='1'>
+  <children size='2'>
     <child location='1.0.0/'/>
+    <child location='1.1.0/'/>
   </children>
 </repository>
