@@ -5,7 +5,7 @@ Eclipse Tools to ease the development of [Dropwizard](http://www.dropwizard.io) 
 
 ## Dropwizard Application Launcher
 
-![Plugin](https://cloud.githubusercontent.com/assets/289648/12744330/e49662c4-c993-11e5-8ecd-a6ac58183d79.png)
+![Plugin](https://cloud.githubusercontent.com/assets/289648/13546886/24882a84-e2bc-11e5-970a-6e26cf375349.png)
 
 Dropwizard applications can be launched as plain Java applications. The drawback here is that each instance launched will use the same port and therefore new instances fail to start. The Dropwizard Application Launcher solves this and has the following features:
 * Eliminate all running instances before starting a new one (no more "Port is already in use!")
