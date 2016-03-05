@@ -47,20 +47,25 @@
             label="Dropwizard Application"
             modes="run,debug,coverage,yourkitprofile">
          <contextualLaunch>
-            <enablement>
-               <with
-                     variable="selection">
-                  <count
-                        value="1">
-                  </count>
-                  <iterate>
-                     <adapt
-                           type="org.eclipse.jdt.core.IJavaElement">
-                        <test
-                              property="org.eclipse.jdt.core.isInJavaProject">
-                        </test>
-                     </adapt></iterate>
-               </with></enablement></contextualLaunch>
+           <enablement>
+             <with variable="selection">
+               <count value="1"/>
+                <iterate>
+                 <and>
+                  <adapt type="org.eclipse.jdt.core.IJavaElement">
+                  	<test property="org.eclipse.jdt.core.isInJavaProject"/>
+                  </adapt>
+               	  <or>
+               	    <test property="org.eclipse.jdt.launching.hasMain"/>
+               	    <test property="org.eclipse.jdt.launching.isContainer"/>
+               	    <test property="org.eclipse.jdt.launching.isPackageFragment"/>
+               	    <test property="org.eclipse.jdt.launching.isPackageFragmentRoot"/>
+               	  </or>
+                 </and>
+                </iterate>
+               </with>
+           </enablement>
+  		 </contextualLaunch>
       </shortcut>
    </extension>
    <extension
