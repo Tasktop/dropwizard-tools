@@ -31,14 +31,14 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.junit.Test;
 
-import com.tasktop.dropwizard.launcher.DropwizardLaunchConstants;
+import com.tasktop.dropwizard.launcher.DropwizardPlugin;
 
 public class LaunchConfigurationParticipantTest {
 
 	@Test
 	public void testStoresAttributes() {
 		LaunchDialogUpdater updater = mock(LaunchDialogUpdater.class);
-		IStatus status = new Status(IStatus.OK, DropwizardLaunchConstants.PLUGIN_ID, "foo");
+		IStatus status = new Status(IStatus.OK, DropwizardPlugin.PLUGIN_ID, "foo");
 		TestLaunchConfigParticipant participant = spy(new TestLaunchConfigParticipant(updater, status));
 
 		participant.setAttribute("foo", "bar");
@@ -50,7 +50,7 @@ public class LaunchConfigurationParticipantTest {
 	@Test
 	public void testSetAttributeInvokesUpdateWithStatusOK() {
 		LaunchDialogUpdater updater = mock(LaunchDialogUpdater.class);
-		IStatus status = new Status(IStatus.OK, DropwizardLaunchConstants.PLUGIN_ID, "foo");
+		IStatus status = new Status(IStatus.OK, DropwizardPlugin.PLUGIN_ID, "foo");
 		TestLaunchConfigParticipant participant = spy(new TestLaunchConfigParticipant(updater, status));
 
 		participant.setAttribute("foo", "bar");
@@ -62,7 +62,7 @@ public class LaunchConfigurationParticipantTest {
 	@Test
 	public void testSetAttributeInvokesUpdateWithStatusERROR() {
 		LaunchDialogUpdater updater = mock(LaunchDialogUpdater.class);
-		IStatus status = new Status(IStatus.ERROR, DropwizardLaunchConstants.PLUGIN_ID, "foo");
+		IStatus status = new Status(IStatus.ERROR, DropwizardPlugin.PLUGIN_ID, "foo");
 		TestLaunchConfigParticipant participant = spy(new TestLaunchConfigParticipant(updater, status));
 
 		participant.setAttribute("foo", "bar");

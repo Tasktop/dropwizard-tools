@@ -18,7 +18,6 @@
  */
 package com.tasktop.dropwizard.launcher.tabs;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -30,14 +29,15 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.jdt.debug.ui.launchConfigurations.JavaMainTab;
 import org.eclipse.jface.layout.GridDataFactory;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.tasktop.dropwizard.launcher.DropwizardLaunchExceptionHandler;
+import com.tasktop.dropwizard.launcher.DropwizardPlugin;
 import com.tasktop.dropwizard.launcher.DropwizardRuntimeClasspathProvider;
 
 public class DropwizardApplicationTab extends JavaMainTab implements LaunchDialogUpdater {
@@ -94,8 +94,8 @@ public class DropwizardApplicationTab extends JavaMainTab implements LaunchDialo
 
 	@Override
 	public Image getImage() {
-		URL image = DropwizardApplicationTab.class.getResource("/dropwizard.png");
-		return ImageDescriptor.createFromURL(image).createImage();
+		return AbstractUIPlugin.imageDescriptorFromPlugin(DropwizardPlugin.PLUGIN_ID, "images/dropwizard.png")
+				.createImage();
 	}
 
 	@Override

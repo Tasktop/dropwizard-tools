@@ -20,19 +20,17 @@ package com.tasktop.dropwizard.launcher;
 
 public class DropwizardLaunchConstants {
 
-	public static final String PLUGIN_ID = "com.tasktop.dropwizard.launcher";
-
 	public static final String ID_DROPWIZARD_APPLICATION = "com.tasktop.dropwizard.launcher.launchConfigurationType";
 
 	public static final String DROPWIZARD_SOURCEPATH_PROVIDER = "com.tasktop.dropwizard.launcher.sourcepathProvider"; //$NON-NLS-1$
 
 	public static final String DROPWIZARD_CLASSPATH_PROVIDER = "com.tasktop.dropwizard.launcher.classpathProvider"; //$NON-NLS-1$
 
-	public static final String ATTR_MODE = PLUGIN_ID + ".mode";
+	public static final String ATTR_MODE = DropwizardPlugin.PLUGIN_ID + ".mode";
 
-	public static final String ATTR_CONFIG_FILE = PLUGIN_ID + ".configFile";
+	public static final String ATTR_CONFIG_FILE = DropwizardPlugin.PLUGIN_ID + ".configFile";
 
-	public static final String ATTR_CONFIG_FILE_PROJECT = PLUGIN_ID + ".configFileProject";
+	public static final String ATTR_CONFIG_FILE_PROJECT = DropwizardPlugin.PLUGIN_ID + ".configFileProject";
 
 	private DropwizardLaunchConstants() {
 		// prevent instantiation

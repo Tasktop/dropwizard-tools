@@ -18,3 +18,4 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.7.0",
  org.eclipse.m2e.maven.runtime;bundle-version="1.5.0"
 Export-Package: com.tasktop.dropwizard.launcher;version="1.0.0";x-internal:=true,
  com.tasktop.dropwizard.launcher.tabs;version="1.0.0";x-internal:=true
+Bundle-Activator: com.tasktop.dropwizard.launcher.DropwizardPlugin

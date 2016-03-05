@@ -40,6 +40,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ResourceListSelectionDialog;
 
 import com.tasktop.dropwizard.launcher.DropwizardLaunchConstants;
+import com.tasktop.dropwizard.launcher.DropwizardPlugin;
 
 public class ConfigurationPart extends LaunchConfigurationParticipant {
 
@@ -150,7 +151,7 @@ public class ConfigurationPart extends LaunchConfigurationParticipant {
 			boolean isValidConfig = configurationFile.endsWith(".yml") || configurationFile.endsWith(".yaml")
 					|| configurationFile.endsWith(".json");
 			if (!isValidConfig) {
-				return new Status(IStatus.ERROR, DropwizardLaunchConstants.PLUGIN_ID,
+				return new Status(IStatus.ERROR, DropwizardPlugin.PLUGIN_ID,
 						"Configuration file must be a yaml or json file");
 			}
 		}

@@ -18,7 +18,7 @@
          point="org.eclipse.debug.ui.launchConfigurationTypeImages">
       <launchConfigurationTypeImage
             configTypeID="com.tasktop.dropwizard.launcher.launchConfigurationType"
-            icon="resources/dropwizard.png"
+            icon="images/dropwizard.png"
             id="com.tasktop.dropwizard.launcher.launchConfigurationTypeImage">
       </launchConfigurationTypeImage>
    </extension>
@@ -42,7 +42,7 @@
    <extension point="org.eclipse.debug.ui.launchShortcuts">
       <shortcut
             class="com.tasktop.dropwizard.launcher.DropwizardLaunchShortcut"
-            icon="resources/dropwizard.png"
+            icon="images/dropwizard.png"
             id="com.tasktop.dropwizard.launcher.shortcut"
             label="Dropwizard Application"
             modes="run,debug,coverage,yourkitprofile">
